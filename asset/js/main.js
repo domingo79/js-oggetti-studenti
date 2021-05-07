@@ -18,11 +18,6 @@ for (var key in studente) {
 /*Creare un array di oggetti di studenti.*/
 var studenti = [
     {
-        nome: 'Paola',
-        cognome: 'Bonadies',
-        eta: 38
-    },
-    {
         nome: 'Scarlett',
         cognome: 'Johansson',
         eta: 35
@@ -66,13 +61,27 @@ studenti.push({ nome: nomeUser, cognome: cognomeUser, eta: etaUser })
 
 
 // stampa in html la lista studenti, con l'ultimo aggiunto dall'utente
-var sectionEle = document.querySelector('section');
+var contentEle = document.querySelector('.container');
+
 for (var key in studenti) {
     const element = studenti[key]
     console.log(element.nome, element.cognome);
-    sectionEle.insertAdjacentHTML('beforeend',
+
+    contentEle.insertAdjacentHTML('beforeend',
         `
-    <p> ${key}  ${element.nome} ${element.cognome}</p>
-    `
+    <div class="card">
+            <div class="imgBox">
+                <img src="/asset/img/${[key] + '.jpeg'}">
+            </div>
+
+            <div class="content">
+            <h4>Cognome: ${element.cognome}</h4>
+            <h4>Nome: ${element.nome}</h4>
+            <h5>Età: ${element.eta}</h5>
+                Lorem ipsum dolor sit amet consectetur!
+            </div>
+    </div>
+`
     )
+
 }
