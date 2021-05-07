@@ -56,4 +56,23 @@ for (const key in studenti) {
 }
 
 /*Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.*/
+var nomeUser = prompt('Inserisci il tuo nome').toString()
 
+var cognomeUser = prompt('Inserisci il tuo cognome').toString()
+
+var etaUser = parseInt(prompt('Inserisci la tua eta'))
+
+studenti.push({ nome: nomeUser, cognome: cognomeUser, eta: etaUser })
+
+
+// stampa in html la lista studenti, con l'ultimo aggiunto dall'utente
+var sectionEle = document.querySelector('section');
+for (var key in studenti) {
+    const element = studenti[key]
+    console.log(element.nome, element.cognome);
+    sectionEle.insertAdjacentHTML('beforeend',
+        `
+    <p> ${key}  ${element.nome} ${element.cognome}</p>
+    `
+    )
+}
